@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Page</title>
+  <style>
+    body { margin: 0; font-family: Arial; }
+    header, footer { background: #007bff; color: white; text-align: center; padding: 10px; }
+    .container { display: flex; }
+    .box { flex: 1; padding: 20px; }
+    .left { background: #f2f2f2; }
+    .right { background: #ddd; }
+
+    @media (max-width: 600px) {
+      .container { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header><h2>Responsive Layout</h2></header>
+  <div class="container">
+    <div class="box left">Sidebar</div>
+    <div class="box right">Main Content</div>
+  </div>
+  <footer>© 2025 My Site</footer>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <title>UX Design Lab — Intro & Hands-on Exercises</title>
+  <style>
+    :root{--accent:#2563eb;--muted:#666}
+    body{font-family:system-ui,Segoe UI,Roboto,Arial;max-width:1000px;margin:28px auto;padding:16px}
+    header{display:flex;align-items:center;gap:12px}
+    h1{margin:0}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:16px}
+    .card{border:1px solid #e6e6e6;padding:12px;border-radius:8px;background:#fff}
+    label{display:block;margin:8px 0}
+    input,select,textarea,button{padding:8px;border-radius:6px;border:1px solid #ccc;font:inherit}
+    button{background:var(--accent);color:#fff;border:none}
+    .small{font-size:0.9rem;color:var(--muted)}
+    .chip{display:inline-block;padding:6px 8px;border-radius:999px;border:1px solid #ddd;margin:4px}
+    .wire{min-height:180px;border:2px dashed #ddd;padding:8px;border-radius:6px}
+    .error{color:#b91c1c}
+    .success{color:#065f46}
+    footer{margin-top:18px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>UX Design Lab</h1>
+    <div class="small">Hands-on: user-centered design, accessibility, usability checks</div>
+  </header>
+
+  <p class="small">This lab guides you through short interactive exercises that illustrate core UX principles: empathy (persona), usability testing (task success), accessibility (forms & ARIA), and low-fidelity prototyping (wireframe).</p>
+
+  <div class="grid">
+    <main>
+      <section class="card">
+        <h2>1. Create a quick persona (empathy)</h2>
+        <p class="small">Fill the fields to generate a brief persona you can reference while designing.</p>
+        <label>Name <input id="personaName" placeholder="Sonal, Raj..."/></label>
+        <label>Age <input id="personaAge" type="number" min="14" max="100"/></label>
+        <label>Primary goal <input id="personaGoal" placeholder="What do they want to achieve?"/></label>
+        <label>Frustrations <input id="personaFrustration" placeholder="e.g., slow load, too many steps"/></label>
+        <button id="makePersona">Generate Persona</button>
+        <div id="personaOut" style="margin-top:10px"></div>
+      </section>
+
+      <section class="card" style="margin-top:12px">
+        <h2>2. Usability task — Simple checkout flow</h2>
+        <p class="small">Test whether a user can complete a 3-step task. Use the controls on the right to simulate success/failure and note observations.</p>
+        <ol>
+          <li>Find product</li>
+          <li>Add to cart</li>
+          <li>Complete checkout</li>
+        </ol>
+        <label>Task notes (observer): <textarea id="taskNotes" rows="3" placeholder="What did you observe?"></textarea></label>
+        <button id="submitTask">Record task result</button>
+        <div id="taskResult" style="margin-top:8px"></div>
+      </section>
+
+      <section class="card" style="margin-top:12px">
+        <h2>3. Accessible form (live validation + ARIA)</h2>
+        <p class="small">This demonstrates client-side validation + ARIA live regions for screen reader feedback.</p>
+        <form id="accessForm" novalidate>
+          <label>Full name <input id="fullName" required aria-required="true" /></label>
+          <label>Email <input id="email" type="email" required aria-required="true" /></label>
+          <label>Choose plan <select id="plan"><option>Free</option><option>Pro</option><option>Enterprise</option></select></label>
+          <button type="submit">Sign up</button>
+        </form>
+        <div id="formFeedback" role="status" aria-live="polite" style="margin-top:8px"></div>
+      </section>
+
+      <section class="card" style="margin-top:12px">
+        <h2>4. Low-fi wireframe (rapid prototype)</h2>
+        <p class="small">Sketch a simple layout. This contenteditable area mimics a wireframe canvas — focus on structure not visuals.</p>
+        <div id="wireframe" class="wire" contenteditable="true" aria-label="Wireframe canvas" spellcheck="false">Header
+
+- Hero heading
+- Primary CTA
+
+Section: Features
+
+Footer</div>
+        <div style="margin-top:8px"><button id="saveWire">Save wireframe</button> <button id="resetWire">Reset</button></div>
+        <div id="wireSaved" class="small" style="margin-top:6px"></div>
+      </section>
+    </main>
+
+    <aside>
+      <section class="card">
+        <h3>Quick checklist</h3>
+        <ul>
+          <li class="small">Is the primary task obvious?</li>
+          <li class="small">Are controls labelled clearly?</li>
+          <li class="small">Keyboard accessible?</li>
+          <li class="small">Provide feedback & error states?</li>
+          <li class="small">Test with real users early & often</li>
+        </ul>
+      </section>
+
+      <section class="card" style="margin-top:12px">
+        <h3>Color contrast tester</h3>
+        <label>Foreground <input id="fg" value="#0f172a"/></label>
+        <label>Background <input id="bg" value="#ffffff"/></label>
+        <button id="checkContrast">Check contrast</button>
+        <div id="contrastOut" class="small" style="margin-top:8px"></div>
+      </section>
+
+      <section class="card" style="margin-top:12px">
+        <h3>Observers notes</h3>
+        <div id="observerNotes" class="small">No results yet.</div>
+      </section>
+    </aside>

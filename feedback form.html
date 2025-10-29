@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Feedback Form</title>
+</head>
+<body>
+  <h2> Feedback Form</h2>
+
+  <form action="#" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+    <label for="source">How did you find our website?</label><br>
+    <select id="source" name="source">
+      <option value="">--Select--</option>
+      <option value="search">Search Engine</option>
+      <option value="social">Social Media</option>
+      <option value="friend">Friend or Family</option>
+      <option value="other">Other</option>
+    </select><br><br>
+
+    <label>Rate your experience:</label><br>
+    <input type="radio" id="excellent" name="rating" value="excellent">
+    <label for="excellent">Excellent</label><br>
+
+    <input type="radio" id="good" name="rating" value="good">
+    <label for="good">Good</label><br>
+
+    <input type="radio" id="average" name="rating" value="average">
+    <label for="average">Average</label><br>
+
+    <input type="radio" id="poor" name="rating" value="poor">
+    <label for="poor">Poor</label><br><br>
+
+    <label for="comments">Your Comments:</label><br>
+    <textarea id="comments" name="comments" rows="4" cols="40" placeholder="Write your feedback here..."></textarea><br><br>
+
+    <input type="submit" value="Submit Feedback">
+  </form>
+</body>
+</html>
