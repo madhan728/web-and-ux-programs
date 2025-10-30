@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background-image: url('rdr2.jpg');
+                background-size: cover;        
+                background-repeat: no-repeat;  
+                background-attachment: fixed;  
+                background-position: center;   
+            }
+            h1 { color: skyblue; }
+            h2 { color: coral; }
+            .profile-container {
+                max-width: 500px;
+                margin: 40px auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background: #92B0AF;
+                text-align: center;
+            }
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 16px;
+            }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                width: 100%;
+                padding: 8px;
+            }
+            th {
+                background-color: #e0e0e0;
+            }
+            #result {
+                font-weight: bold;
+                color: darkblue;
+                margin-top: 10px;
+            }
+            button {
+                margin-top: 10px;
+                background-color: #007bff;
+                color: white;
+                padding: 8px 14px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+        <title>Profile Page</title>
+    </head>
+    <body>
+        <div class="profile-container">
+            <img src="https://www.shutterstock.com/image-vector/vector-isolated-old-man-moustaches-600nw-2183744179.jpg"
+                 alt="Profile Image"
+                 class="profile-img">
+            <h1>Profile Page</h1>
+            <h2>LIKITH KUMAR.K</h2>
+            <p><strong>Email:</strong> Likith126@exgmail.com</p>
+            <p><strong>Location:</strong> Bengaluru, India</p>  
+            <p><strong>About Me:</strong> I am Studying my 1st year BCA in RV University.</p>
+            <p><strong>Education Qualification:</strong></p>
+            <table>
+                <tr>
+                    <th>Course</th>
+                    <th>School</th>
+                    <th>Marks/Percentage</th>
+                </tr>
+                <tr>
+                    <td>10th</td>
+                    <td>Presidency School NLO</td>
+                    <td>92.4%</td>
+                </tr>
+                <tr>
+                    <td>12th (PCME)</td>
+                    <td>Vidya Mandir PU College</td>
+                    <td>77%</td>
+                </tr>
+            </table>
+            <h3>RV University - Internal Marks</h3>
+            <table id="internalMarks">
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks (out of 45)</th>
+                </tr>
+                <tr>
+                    <td>Programming in C</td>
+                    <td class="marks">34</td>
+                </tr>
+                <tr>
+                    <td>Mathematics</td>
+                    <td class="marks">38</td>
+                </tr>
+                <tr>
+                    <td>Digital Logics</td>
+                    <td class="marks">37</td>
+                </tr>
+                <tr>
+                    <td>Linux and Shell Programming</td>
+                    <td class="marks">33</td>
+                </tr>
+                <tr>
+                    <td>Web and UX</td>
+                    <td class="marks">34</td>
+                </tr>
+            </table>
+            <button onclick="calculateInternalMarks()">Calculate Total & Average</button>
+            <p id="result"></p>
+            <p><strong>Hobbies:</strong> Playing Video games, Listening to songs, Having fun with friends</p>
+            <a href="https://www.youtube.com/watch?v=GBIIQ0kP15E" style="color:white; text-align:center;">
+                My favorite website
+            </a>
+            </div>
+             <script>
+            function calculateInternalMarks() {
+                let marksElements = document.getElementsByClassName("marks");
+                let total = 0;
+                for (let i = 0; i < marksElements.length; i++) {
+                    total += parseFloat(marksElements[i].textContent);
+                }
+                let average = total / marksElements.length;
+                document.getElementById("result").innerHTML =
+                    "Total Marks: " + total + " / 250<br>" +
+                    "Average Marks: " + average.toFixed(2) + " / 50";
+            }
+        </script>
+    </body>
+</html>
